@@ -1,7 +1,11 @@
 <%= form_for @song  do |f| %>
+  <%# <%= f.hidden_field :artist_id %1> %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
-  <%= f.label :artist_name %>
+  <%= f.label :artist_name %><br />
+  <% if @song.id %>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name %><br />
+  <% end %>
   <%= f.text_field :artist_name %>
   <br />
 
